@@ -19,7 +19,7 @@
 ## 资源列表
 - [金山文档 | WPS云文档】 短剧天天看](https://kdocs.cn/l/crzS58nUMuN2)
 
-<a href="https://kdocs.cn/l/crzS58nUMuN2"><img src="https://cdn.jsdelivr.us/gh/xiaobaiweinuli/bloglmage@main/img/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png" style="width:600px" alt="pSVv89e.jpg" border="0" /></a>  
+<a href="https://kdocs.cn/l/crzS58nUMuN2"><img src="[https://cdn.jsdelivr.us/gh/xiaobaiweinuli/bloglmage@main/img/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png](https://github.com/xiaobaiweinuli/duanju/blob/main/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png)" style="width:600px" alt="pSVv89e.jpg" border="0" /></a>  
 
 - [【WPS表单】「短剧资源需求提交」](https://f.wps.cn/g/VcWl8Bt9)
 
