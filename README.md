@@ -18,10 +18,9 @@
 插件运行框架为可爱猫框架，使用期间一切问题与本人无关
 ## 资源列表
 - [金山文档 | WPS云文档】 短剧天天看](https://kdocs.cn/l/crzS58nUMuN2)
-
-<a href="https://kdocs.cn/l/crzS58nUMuN2"><img src="[https://cdn.jsdelivr.us/gh/xiaobaiweinuli/bloglmage@main/img/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png](https://github.com/xiaobaiweinuli/duanju/blob/main/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png)" style="width:600px" alt="pSVv89e.jpg" border="0" /></a>  
-
+![](https://github.com/xiaobaiweinuli/duanju/blob/main/%E7%9F%AD%E5%89%A7%E5%A4%A9%E5%A4%A9%E7%9C%8B.png)
 - [【WPS表单】「短剧资源需求提交」](https://f.wps.cn/g/VcWl8Bt9)
+![](https://github.com/xiaobaiweinuli/duanju/blob/main/%E7%9F%AD%E5%89%A7%E8%B5%84%E6%BA%90%E9%9C%80%E6%B1%82%E6%8F%90%E4%BA%A4.png)
 
 ## 插件下载地址
 [夸克网盘下载地址](https://pan.quark.cn/s/e5cb5335a56c)
