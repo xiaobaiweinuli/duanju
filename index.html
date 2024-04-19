@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件搜索</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            width: 60%;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        #resultTable {
+            display: none;
+        }
+        #extraContent {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        #disclaimer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+        #disclaimer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #disclaimer ul li::before {
+            content: '• ';
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-box" id="searchBox">
+            <input type="text" id="searchInput" placeholder="请输入搜索内容" onkeydown="if(event.keyCode==13){search()}">
+            <button onclick="search()">搜索</button>
+        </div>
+        <div id="extraContent">
+            <center>文件资源 <a href="https://kdocs.cn/l/crzS58nUMuN2">金山文档</a></center>
+        </div>
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>搜索结果</th>
+                    <th>链接</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+        </table>
+        <div id="disclaimer">
+            <h3>免责声明</h3>
+            <ul>
+                <li>本站分享的所有资源均采集于网络，仅用于学习交流，测试网速。</li>
+                <li>不得将本站所分享的资源用于商业经营或者非法用途！如果执意不听，一切后果请自负，与本人无关。</li>
+                <li>您必须在转存或下载后的 24 个小时之内，从您的储存中彻底删除这些资源。如有侵权，请联系删除。</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let cachedData = null; // Cache to store fetched data
+
+        async function fetchTxt() {
+            if (cachedData) {
+                return cachedData; // If data is cached, return cached data
+            }
+            
+            const response = await fetch('https://mirror.ghproxy.com/https://raw.githubusercontent.com/xiaobaiweinuli/duanju/main/%E5%90%88%E9%9B%86.txt');
+            const content = await response.text();
+            const data = content.split('\n').map(line => {
+                const [text, link] = line.split('\\n');
+                return [text ? text.trim() : '', link ? link.trim() : ''];
+            });
+            cachedData = data; // Cache the fetched data
+            return data;
+        }
+
+        async function search() {
+            const input = document.getElementById('searchInput').value;
+            const data = await fetchTxt();
+            const resultBody = document.getElementById('resultBody');
+            resultBody.innerHTML = '';
+            const resultTable = document.getElementById('resultTable');
+
+            if (input) {
+                const filteredData = data.filter(item => item[0].includes(input));
+                if (filteredData.length > 0) {
+                    resultTable.style.display = 'table';
+                    document.getElementById('extraContent').style.display = 'none'; // Hide extra content
+                    filteredData.forEach(item => {
+                        const row = document.createElement('tr');
+                        const textCell = document.createElement('td');
+                        textCell.textContent = item[0];
+                        const linkCell = document.createElement('td');
+                        const link = document.createElement('a');
+                        link.href = item[1];
+                        link.textContent = '前往';
+                        link.target = '_blank';
+                        linkCell.appendChild(link);
+                        row.appendChild(textCell);
+                        row.appendChild(linkCell);
+                        resultBody.appendChild(row);
+                    });
+                } else {
+                    resultTable.style.display = 'none';
+                }
+            } else {
+                resultTable.style.display = 'none';
+                document.getElementById('extraContent').style.display = 'block'; // Show extra content
+            }
+        }
+    </script>
+</body>
+</html>
